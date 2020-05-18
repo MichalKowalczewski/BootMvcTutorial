@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/default">
+<body>
+
+
+	<div id="page" layout:fragment="content">
+		<div class="container">
+
+			<table class="table">
+				<thead>
+				<tr>
+					<th> <span th:text="#{label.id}">id</span> </th>
+					<th> <span th:text="#{label.firstName}">firstName</span> </th>
+					<th> <span th:text="#{label.lastName}">lastName</span> </th>
+					<th> <span th:text="#{label.email}">email</span> </th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:if="${user != null}">
+					<td><span th:text="${user.id}">id</span></td>
+					<td><span th:text="${user.firstName}">firstName</span></td>
+					<td><span th:text="${user.lastName}">lastName</span></td>
+					<td><span th:text="${user.email}">email</span></td>
+				</tr>
+				<tr th:unless="${user == null}" th:each="user : ${users}">
+					<form action="#" method="post" th:action="@{details}" th:object="${user}">
+						<input type="hidden" th:name="id" th:value="*{id}"/>
+						<td><span th:text="*{id}">First Name</span></td>
+						<td><span th:text="*{firstName}">First Name</span></td>
+						<td><span th:text="*{lastName}">Last Name</span></td>
+						<td><span th:text="*{email}">Last Name</span></td>
+						<td><input type="submit" class="btn btn-success" id="submitButton" th:value="Save"></td>
+					</form>
+				</tr>
+				</tbody>
+			</table>
+			<a href="post" class="btn btn-success">Post Example</a>
+
+
+
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layouts/default">
+<body>
+<div id="page" layout:fragment="content">
+   <div class="container">
+   <form action="#" th:action="@{save}" th:object="${user}"
+         method="post">
+      <div class="form-group w-25">
+         <div>
+            <label for="firstName"><span th:text="#{label.firstName}">firstName</span></label>
+            <input class="form-control" placeholder="Provide First Name" th:field="*{firstName}" id="firstName"/>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"> First Name error</span>
+         </div>
+         <div>
+            <label for="lastName"><span th:text="#{label.lastName}">lastName</span></label>
+            <input class="form-control" placeholder="Provide Last Name" th:field="*{lastName}" id="lastName"/>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"> Last Name error</span>
+         </div>
+         <div>
+            <br/>
+            <input type="submit" class="btn btn-success" id="submitButton" th:value="Save">
+         </div>
+
+
+      </div>
+   </form>
+   </div>
+</div>
+
+
+
+</body>
+</html>

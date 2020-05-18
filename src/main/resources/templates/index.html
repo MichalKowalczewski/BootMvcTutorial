@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layouts/default">
+<body>
+
+<div id="page" layout:fragment="content">
+	<div class="container">
+		<table class="table">
+			<thead>
+			<tr>
+				<th> <span th:text="#{label.firstName}">firstName</span> </th>
+				<th> <span th:text="#{label.lastName}">lastName</span> </th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:if="${user != null}">
+				<td><span th:text="${user.firstName}">First Name</span></td>
+				<td><span th:text="${user.lastName}">Last Name</span></td>
+			</tr>
+			<tr th:unless="${user == null}" th:each="user : ${users}">
+				<td><span th:text="${user.firstName}">First Name</span></td>
+				<td><span th:text="${user.lastName}">Last Name</span></td>
+			</tr>
+			</tbody>
+		</table>
+		<a href="post" class="btn btn-success">Post Example</a>
+		<a href="editMain" class="btn btn-success">Edit Example</a>
+
+
+	</div>
+</div>
+
+</body>
+</html>
