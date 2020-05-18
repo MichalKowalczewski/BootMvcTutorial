@@ -79,6 +79,12 @@ public class UserController {
         return "details";
     }
 
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String modalEdit(User user, Model model){
+        //dowód że trzeba przekazywać całość obiektu, albo pobrać sobie z bazy obiekt który chcemy zmodyfikować
+        model.addAttribute("user", user);
+        return "details";
+    }
 
 
 
