@@ -14,6 +14,8 @@ thymeleaf:
 
 spring:
   mandatory-file-encoding: UTF-8
+  messages:
+    basename: locales/messages, locales/test
   http:
     encoding:
       charset: UTF-8
